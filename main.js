@@ -1,5 +1,5 @@
 // MOBILE NAVBAR
-const mobileNavLinks = document.querySelector('div.nav-links');
+const mobileNavLinks = document.querySelector('div.nav-items');
 const hamburgerDiv = document.querySelectorAll('#hamburger')[0];
 const navbarToggleIcons = document.querySelectorAll('#hamburger i');
 

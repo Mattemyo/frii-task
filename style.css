@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto");
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 
 :root {
   --red: #ff4169;
@@ -11,7 +11,7 @@
 html,
 body {
   width: 100vw;
-  font-family: "Roboto";
+  font-family: 'Roboto';
   padding: 0;
   margin: 0;
   overflow-x: hidden;
@@ -19,6 +19,10 @@ body {
 
 img {
   max-width: 100%;
+}
+
+hr {
+  border: 2px solid var(--red);
 }
 
 div.container {
@@ -30,7 +34,7 @@ nav {
   background: var(--red) 50%;
   grid-column: 1 / -1;
   display: grid;
-  grid-template-columns: 30px 60px 30px [globuzzer-start] 100px [globuzzer-end] 4fr [nav-items-start] auto [nav-items-end] 20px;
+  grid-template-columns: 20px 30px 30px [globuzzer-start] 90px [globuzzer-end] 4fr [nav-items-start] auto [nav-items-end] 20px;
   grid-template-rows: 1fr 3fr 1fr;
   height: 90px;
   justify-content: center;
@@ -86,7 +90,7 @@ div.video-container {
   text-align: center;
   grid-column: 1 / -1;
   display: grid;
-  grid-gap: 20px;
+  grid-gap: 40px;
   grid-template-columns: 1fr [video-start] minmax(200px, 600px) [video-end] 1fr;
   grid-template-rows: 1fr [video-start] auto;
   justify-content: center;
@@ -119,21 +123,19 @@ div.product-info h3:first-of-type {
   color: var(--red);
   font-weight: bold;
 }
-div.prodcut-info div.buttons {
-  display: flex;
-  justify-content: flex-end;
+div.product-info div.buttons {
+  display: grid;
+  grid-gap: 20px;
+  justify-content: center;
 }
 div.product-info div.buttons button {
   outline: 0;
   border-radius: 600px;
   padding: 10px 0px;
-  width: 30%;
   font-size: 1em;
   border: 2px solid var(--red);
   font-weight: bold;
   box-shadow: 2px 3px 2px rgba(0, 0, 0, 0.075);
-  float: right;
-  margin: 0 12px;
 }
 div.product-info div.buttons button:hover {
   transform: scale(1.01);
@@ -160,6 +162,7 @@ nav div.nav-items > * {
   color: #fff;
   font-weight: bold;
   padding: 10px 26px;
+  border-radius: 3px;
 }
 nav div.nav-items > *:hover {
   background: #fff;
@@ -172,7 +175,7 @@ div.payment {
   grid-column: 1 / -1;
   display: grid;
   grid-gap: 6em;
-  padding: 10px 90px;
+  padding: 10px 35px;
   grid-template-columns: 1fr;
 }
 div.payment > *:first-of-type {
@@ -188,6 +191,7 @@ div.product h3 {
 
 div.product img {
   width: calc(500px - 10%);
+  min-width: 220px;
   padding-left: 60px;
 }
 i.fa-credit-card,
@@ -223,7 +227,7 @@ div.form-actions > input:first-of-type {
 
 @media screen and (min-width: 700px) {
   nav {
-    grid-template-columns: 30px 60px 30px [globuzzer-start] 100px [globuzzer-end] 4fr [nav-items-start] auto [nav-items-end] 20px;
+    grid-template-columns: 30px 40px 30px [globuzzer-start] 100px [globuzzer-end] 4fr [nav-items-start] auto [nav-items-end] 20px;
     grid-template-rows: 1fr 3fr 1fr;
     height: 90px;
     display: grid;
@@ -248,14 +252,21 @@ div.form-actions > input:first-of-type {
   }
 
   div.product-info div.buttons {
-    display: flex;
-    justify-content: space-evenly;
+    grid-gap: 10px;
+    display: grid;
+    grid-template-columns: 15% [buy-now-start] 6fr [buy-now-end ] 1fr [add-to-cart-start] 6fr [add-to-cart-end] 10px;
+    grid-template-rows: 1fr;
+  }
+  div.product-info div.buttons > *:first-of-type {
+    grid-column: buy-now;
+  }
+  div.product-info div.buttons > *:last-of-type {
+    grid-column: add-to-cart;
   }
 
   div.product-info div.buttons {
     margin: 60px 0 0;
   }
-
   div.payment {
     grid-template-columns: 1fr 1fr;
   }
@@ -266,7 +277,7 @@ div.form-actions > input:first-of-type {
     top: 90px;
     position: absolute;
     text-align: center;
-    width: 100vw;
+    width: 100%;
     display: grid;
     min-height: 120px;
     grid-gap: 30px;
@@ -304,5 +315,14 @@ div.form-actions > input:first-of-type {
 
   nav div.nav-items {
     transition: 0.2s ease-out;
+  }
+
+  div.payment {
+    padding: 10px 2%;
+    grid-gap: 10px;
+  }
+
+  div.buttons button {
+    padding: 12px 40px !important;
   }
 }
